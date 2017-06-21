@@ -1,0 +1,6 @@
+{
+  "client_id":     "botID",
+  "client_secret": "botSecret",
+  "username":      "botUserName",
+  "token":         "botToken"
+}
