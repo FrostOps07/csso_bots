@@ -9,7 +9,7 @@ This guide assumes you already have Node JS installed on your machine and know h
 - Run `npm install` to download all required packages.
 - Duplicate `client_key.json.skel` and rename it to `client_key.json`.
 - Add your bot's credentials to  `client_key.json`.
-- Run `node dyk-bot.js` in your console. If you see "I am ready!" in your console, you are good to go!
+- Run `node index.js` in your console. If you see "I am ready!" in your console, you are good to go!
 
 # Dev resources:
 
