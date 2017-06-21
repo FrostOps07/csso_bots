@@ -1,3 +1,5 @@
+var colors = require('colors');
+
 const Discord = require("discord.js");
 const client  = new Discord.Client();
 
@@ -7,12 +9,12 @@ let credentials = JSON.parse(fs.readFileSync('./client_key.json',"utf8"));
 
 function botModule(){
 
-  console.log("Botmodule started.");
+  console.log("Botmodule started.".blue);
 
   client.login(credentials.token);
 
   client.on("ready", () => {
-    console.log("I am ready!");
+    console.log("I am ready!".blue);
 
     // Grab the MwM channel on server start and send a message to it
     // var channel = client.channels.get("326893762049736704");

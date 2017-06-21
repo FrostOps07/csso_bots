@@ -1,3 +1,5 @@
+var colors = require('colors');
+
 var FeedParser = require('feedparser');
 var request    = require('request'); // for fetching the feed
 
@@ -7,7 +9,7 @@ var feedparser = new FeedParser();
 
 function feedModule(){
 
-  console.log("Feed Module started.");
+  console.log("Feed Module started.".red);
 
   req.on('error', function (error) {
     console.log("Feed Request Error.",error);
