@@ -3,6 +3,8 @@ var colors = require('colors');
 var FeedParser = require('feedparser');
 var request    = require('request'); // for fetching the feed
 
+const bot  = require('./csso-bot.js');
+
 /**
 *   Initialize RSS feed reader.
 *
@@ -11,7 +13,7 @@ var request    = require('request'); // for fetching the feed
 */
 exports.initFeed = (feed_address, channel_id) => {
   // Call this object for all requests to the CSSO channel.
-  var req        = request(feed_address)
+  var req        = request(feed_address);
   var feedparser = new FeedParser();
 
   req.on('error', function (error) {
@@ -41,8 +43,14 @@ exports.initFeed = (feed_address, channel_id) => {
     var item;
 
     while (item = stream.read()) {
-      console.log("New episode of "+colors.red(meta.title)+" found! " + item.title);
+      var message = "New episode of "+meta.title+" found! " + item.title;
+      // console.log(message);
+      bot.sendMessage(message, channel_id); // Sends the found item to the appropriate discord channel
     }
   });
 
+}
+
+exports.getData = (data, callback) => {
+  callback(data+", calling back?");
 }
