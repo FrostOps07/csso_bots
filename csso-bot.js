@@ -7,18 +7,17 @@ const client  = new Discord.Client();
 const fs = require("fs");
 let credentials = JSON.parse(fs.readFileSync('./client_key.json',"utf8"));
 
-function botModule(){
+exports.initBot = () => {
 
-  console.log("Botmodule started.".blue);
+  console.log("Bot initializing.".yellow);
 
   client.login(credentials.token);
 
   client.on("ready", () => {
     console.log("I am ready!".blue);
 
-    // Grab the MwM channel on server start and send a message to it
-    // var channel = client.channels.get("326893762049736704");
-    // channel.send("MwM channel?");
+    const channel = client.channels.get("");
+
 
   });
 
@@ -31,6 +30,9 @@ function botModule(){
     }
   });
 
-}
+};
 
-module.exports = botModule;
+exports.sendMessage = (message) => {
+  // TODO: Doesn't work yet, need to be able to call this from the feed parser!
+  // client.channel.send("sendMessage Function");
+};
