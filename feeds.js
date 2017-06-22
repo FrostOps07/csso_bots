@@ -14,8 +14,13 @@
   "channel_id": "326893865565028352",
 },
 {
-  "name":       "28 Plays Later",
+  "name":       "28 Plays Later Videos",
   "feed_url":   "https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW1rBxwI5JdcstHXHrKKeNJP",
+  "channel_id": null,
+},
+{
+  "name":       "28 Plays Later",
+  "feed_url":   "http://28playslater.com/feed/podcast/",
   "channel_id": null,
 },
 {
