@@ -21,5 +21,15 @@
 {
   "name":       "ChainsawSuit Solves",
   "feed_url":   "https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW3myi_yJGE89H8wPV-jJYPK",
-  "channel_id": "",
+  "channel_id": null,
 },
+{
+  "name":       "Cry Me a Riverdale",
+  "feed_url":   "http://feeds.feedburner.com/CryMeARiverdale",
+  "channel_id": null,
+},
+{
+  "name":       "TV Crimes",
+  "feed_url":   "http://tvcrimes.net/feed/podcast/",
+  "channel_id": null,
+}
