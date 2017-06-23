@@ -11,10 +11,12 @@ This guide assumes you already have Node JS installed on your machine and know h
 - Add your bot's credentials to  `client_key.json`.
 - Run `node index.js` in your console. If you see "I am ready!" in your console, you are good to go!
 
-# Dev resources:
+# To Do
 
-Discord JS Documentation:
-https://discord.js.org/#/docs/main/stable/general/welcome
-
-An Idiot's Guide to Discord js:
-https://anidiotsguide.gitbooks.io/discord-js-bot-guide/getting-started/installing_and_using_a_proper_editor.html
+- Check if a user has permission to use a command before allowing it
+- Automatically post new episodes to their respective channel (and general) when they are uploaded.
+- Merge `feeds.js` and `feeds-dev.js`. Switch each feed's "channel" field to an array of channels. This way we can include both dev and prod channels.
+- Create `db.js` model. This way we can import the entire database at the top of each file instead of importing each file individually.
+- Create functions in `db.js` for commonly used information (i.e. find out if users can use commands, what feeds a channel can call `!new` for, etc)
+- Create table: `db/channels.json`
+- Create table: `db/dyk.json`

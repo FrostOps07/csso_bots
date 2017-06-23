@@ -1,13 +1,17 @@
-var colors = require('colors');
+// External Modules
+var colors     = require('colors');     // color codes console output
+var FeedParser = require('feedparser'); // for parsing feeds
+var request    = require('request');    // for fetching feeds
 
-var FeedParser = require('feedparser');
-var request    = require('request'); // for fetching the feed
+// Internal Modules
+const bot   = require('./csso-bot.js'); // Discord Bot
 
-const bot   = require('./csso-bot.js');
+// Database Files
 // const feeds = require("./feeds.json");
 const feeds = require("./feeds-dev.json");
 
 /**
+*   @function initFeed()
 *   Read an RSS feed and send each entry to a specified channel.
 *
 *   @input feed_address:string  RSS Feed URL to parse

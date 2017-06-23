@@ -1,22 +1,26 @@
-var colors = require('colors');
-
-const Discord = require("discord.js");
+// Import external modules
+var colors = require('colors');        // Color codes console output
+const fs = require("fs");              // To read the credentials file
+const Discord = require("discord.js"); // The bot
 const client  = new Discord.Client();
 
-const feed = require('./feedparser.js');
-// const feeds = require("./feeds.json");
-const feeds = require("./feeds-dev.json");
+// Import internal modules
+const feed = require('./feedparser.js'); // For parsing RSS feeds
 
-// Read bot credentials from a file and log in
-const fs = require("fs"); // Use 'fs' to read the credentials file
-let credentials = JSON.parse(fs.readFileSync('./client_key.json',"utf8"));
-client.login(credentials.token);
+// Database Files
+// const feeds = require("./db/feeds.json");
+const feeds = require("./db/feeds-dev.json");       // RSS Feeds for all shows
+const bot_commands = require("./db/commands.json"); // List of commands
+const user_roles = require("./db/roles.json")       // List of user roles and the commands they can use
 
 /**
 *   @function initBot
 *   Creates an instance of the Discord bot. Should only be called on app startup.
 */
 exports.initBot = () => {
+  // Read bot credentials from a file and log in
+  let credentials = JSON.parse(fs.readFileSync('./db/client_key.json',"utf8"));
+  client.login(credentials.token);
 
   console.log("Bot initializing.".yellow);
 
@@ -25,6 +29,13 @@ exports.initBot = () => {
   });
 
   client.on("message", (message) => {
+    if ( message.content.startsWith("!commands") ){
+      var command_list = "*Here is the list of commands this bot accepts:* \n\n";
+      for (var i = 0; i < commands.length; i++) {
+        command_list += "**"+commands[i].command+":** "+commands[i].description+"\n\n";
+      }
+      message.channel.send(command_list);
+    }
     if ( message.content.startsWith("!test") ) {
       message.channel.send("Reply!");
     }
@@ -32,43 +43,38 @@ exports.initBot = () => {
       message.channel.send("What, me, RSS?");
     }
     if ( message.content.startsWith("!dyk") ) {
-      message.channel.send(":dyk:");
+      message.channel.send("<:dyk:324633372217573377>");
     }
-    if ( message.content.startsWith("!emote") ) {
-      message.channel.send("<:bit:327641127413088256><:bit:327641127413088256><:bit:327641127413088256>");
-    }
-    // Find the newest episode for the current channel!
-    // Searches for as many feeds as this channel is associated with.
     if ( message.content.startsWith("!new") ) {
-      var channel_id  = message.channel.id;
-      var feed_urls   = [];
-      // Look up the feed_url that correlates to this channel
-      for (var i = 0; i < feeds.length; i++) {
-        // Add the feed URL if it matches the channel ID, OR if the channel is "general"
-        if(feeds[i].channel_id == channel_id || channel_id == "324563443279724545" || channel_id == "325292818547605505"){
-          feed_urls.push(feeds[i].feed_url);
+        var channel_id  = message.channel.id;
+        var feed_urls   = [];
+        // Look up the feed_url that correlates to this channel
+        for (var i = 0; i < feeds.length; i++) {
+          // Add the feed URL if it matches the channel ID, OR if the channel is "general"
+          if(feeds[i].channel_id == channel_id || channel_id == "324563443279724545" || channel_id == "325292818547605505"){
+            feed_urls.push(feeds[i].feed_url);
+          }
+        }
+        // Send error if no feeds found, else get the newest item for each feed
+        if(feed_urls.length == 0){
+          message.channel.send("No feeds found for this channel."+ feed_urls);
+        }
+        // Don't bother comparing feeds if there's only one!
+        if(feed_urls.length == 1){
+          feed.getNewest(feed_urls[0], function(result){
+            var show_name    = result.meta.title;
+            var episode_link = result.item.link;
+            var data = "Here's the newest episode of "+show_name+"! \n"+episode_link;
+            message.channel.send(data);
+          });
+        }
+        // Otherwise, compare all the feeds!
+        else{
+          compareFeeds(feed_urls, function(data){
+            message.channel.send(data);
+          });
         }
       }
-      // Send error if no feeds found, else get the newest item for each feed
-      if(feed_urls.length == 0){
-        message.channel.send("No feeds found for this channel."+ feed_urls);
-      }
-      // Don't bother comparing feeds if there's only one!
-      if(feed_urls.length == 1){
-        feed.getNewest(feed_urls[0], function(result){
-          var show_name    = result.meta.title;
-          var episode_link = result.item.link;
-          var data = "Here's the newest episode of "+show_name+"! \n"+episode_link;
-          message.channel.send(data);
-        });
-      }
-      // Otherwise, compare all the feeds!
-      else{
-        compareFeeds(feed_urls, function(data){
-          message.channel.send(data);
-        });
-      }
-    }
   });
 };
 
@@ -100,6 +106,15 @@ function compareFeeds(feed_urls, callback){
       }
     });
   }
+}
+
+/**
+*   @function hasPermission()
+*
+*   Check if user role has permission to use a command
+*/
+function hasPermission(role, command){
+
 }
 
 /**

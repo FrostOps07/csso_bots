@@ -1,0 +1,26 @@
+# This file is just for keeping any ID's you might need for reference.
+# All ID's are in a format the bot can send. The ID itself is just the numbers before '>'
+
+# Emotes
+<:silver:327124638008344577>
+<:pleaseddonut:324633424679665675>
+<:muffled_catawampus:324667574912548874>
+<:moont:324948661031141396>
+<:mikey:324656167962017812>
+<:local58:324656047203549207>
+<:kingpretzel:324633427942834176>
+<:fancytaco:324633425397153792>
+<:dyk:324633372217573377>
+<:boom_got_em:324663289684426762>
+<:bbc:324699992671518720>
+<:28paul:327078317733707777>
+<:28kris:327078370158313482>
+
+# Roles
+<@&324571281884315649> # @Mods
+<@&324570153931112482> # @Team
+<@&327868906964516864> # @Dev
+# Patreon Roles
+<@&324595654578143232> # Pleased Donut
+<@&324595777475313664> # King Pretzel
+<@&324595722114564097> # Fancy Taco

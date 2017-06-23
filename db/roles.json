@@ -1,0 +1,43 @@
+[
+  {
+    "role":"Team",
+    "id":"324570153931112482",
+    "commands":[
+      "!new",
+      "!commands"
+    ]
+  },
+  {
+    "role":"Mods",
+    "id":"324571281884315649",
+    "commands":[
+      "!new",
+      "!commands"
+    ]
+  },
+  {
+    "role":"Dev",
+    "id":"327868906964516864",
+    "commands":["all"]
+  },
+  {
+    "role":"Pleased Donut",
+    "id":"324595654578143232",
+    "commands":[]
+  },
+  {
+    "role":"King Pretzel",
+    "id":"324595777475313664",
+    "commands":[]
+  },
+  {
+    "role":"Fancy Taco",
+    "id":"324595722114564097",
+    "commands":[]
+  },
+  {
+    "role":"Everyone",
+    "id":"324563443279724545",
+    "commands":[]
+  }
+]
