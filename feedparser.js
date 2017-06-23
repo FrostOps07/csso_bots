@@ -4,7 +4,8 @@ var FeedParser = require('feedparser');
 var request    = require('request'); // for fetching the feed
 
 const bot   = require('./csso-bot.js');
-const feeds = require("./feeds.json");
+// const feeds = require("./feeds.json");
+const feeds = require("./feeds-dev.json");
 
 /**
 *   Read an RSS feed and send each entry to a specified channel.

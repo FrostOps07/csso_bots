@@ -4,7 +4,8 @@ const Discord = require("discord.js");
 const client  = new Discord.Client();
 
 const feed = require('./feedparser.js');
-const feeds = require("./feeds.json");
+// const feeds = require("./feeds.json");
+const feeds = require("./feeds-dev.json");
 
 // Read bot credentials from a file and log in
 const fs = require("fs"); // Use 'fs' to read the credentials file
@@ -30,6 +31,12 @@ exports.initBot = () => {
     if ( message.content.startsWith("!rss") ) {
       message.channel.send("What, me, RSS?");
     }
+    if ( message.content.startsWith("!dyk") ) {
+      message.channel.send(":dyk:");
+    }
+    if ( message.content.startsWith("!emote") ) {
+      message.channel.send("<:bit:327641127413088256><:bit:327641127413088256><:bit:327641127413088256>");
+    }
     // Find the newest episode for the current channel!
     // Searches for as many feeds as this channel is associated with.
     if ( message.content.startsWith("!new") ) {
@@ -37,7 +44,8 @@ exports.initBot = () => {
       var feed_urls   = [];
       // Look up the feed_url that correlates to this channel
       for (var i = 0; i < feeds.length; i++) {
-        if(feeds[i].channel_id == channel_id || channel_id == "325292818547605505"){
+        // Add the feed URL if it matches the channel ID, OR if the channel is "general"
+        if(feeds[i].channel_id == channel_id || channel_id == "324563443279724545" || channel_id == "325292818547605505"){
           feed_urls.push(feeds[i].feed_url);
         }
       }
@@ -72,7 +80,6 @@ exports.initBot = () => {
 function compareFeeds(feed_urls, callback){
   // Array of feed responses
   var feed_data   = [];
-  var data = "Something broke, ya chungus.";
   // Get newest item from each feed found
   for (var i = 0; i < feed_urls.length; i++) {
     feed.getNewest(feed_urls[i], function(result){

@@ -8,7 +8,8 @@
 var colors = require('colors');
 
 const feed = require('./feedparser.js');
-const feeds = require("./feeds.json");
+// const feeds = require("./feeds.json");
+const feeds = require("./feeds-dev.json");
 
 const bot  = require('./csso-bot.js');
 
