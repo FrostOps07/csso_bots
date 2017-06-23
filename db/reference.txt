@@ -1,5 +1,5 @@
 # This file is just for keeping any ID's you might need for reference.
-# All ID's are in a format the bot can send. The ID itself is just the numbers before '>'
+# Most ID's are in a format the bot can send.
 
 # Emotes
 <:silver:327124638008344577>
@@ -24,3 +24,17 @@
 <@&324595654578143232> # Pleased Donut
 <@&324595777475313664> # King Pretzel
 <@&324595722114564097> # Fancy Taco
+
+# Channels
+325292818547605505 # General (Dev)
+324564307486703618 # Movies with Mikey
+326893762049736704 # Movies with Mikey (Dev)
+324564388981768192 # PortsCenter
+326893844664811520 # PortsCenter (Dev)
+324590903111057409 # Local58
+326893865565028352 # Local58 (Dev)
+324928495912484864 # 28 Plays Later
+327598745174933504 # 28 Plays Later (Dev)
+326731293242949635 # ChainsawSuit Solves
+324564335416573964 # Cry Me a Riverdale
+324564420619403275 # TV Crimes

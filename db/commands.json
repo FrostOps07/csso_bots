@@ -1,14 +1,14 @@
 [
   {
     "command":"!commands",
-    "description":"The command you're probably using to read this list, silly.",
+    "description":"The command you're probably using to read this list, silly."
   },
   {
     "command":"!test",
-    "description":"Sends back a reply to let you know the bot is working!",
+    "description":"Sends back a reply to let you know the bot is working!"
   },
   {
     "command":"!new",
-    "description":"Post a link to the newest episode available for whatever channel you are in! If you are in the #general channel, this will send back the newest episode available out all CSSO feeds.",
+    "description":"Post a link to the newest episode available for whatever channel you are in! If you are in the #general channel, this will send back the newest episode available out all CSSO feeds."
   }
 ]

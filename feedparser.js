@@ -4,11 +4,8 @@ var FeedParser = require('feedparser'); // for parsing feeds
 var request    = require('request');    // for fetching feeds
 
 // Internal Modules
-const bot   = require('./csso-bot.js'); // Discord Bot
-
-// Database Files
-// const feeds = require("./feeds.json");
-const feeds = require("./feeds-dev.json");
+const bot = require('./csso-bot.js'); // Discord Bot
+const db  = require('./db.js') // Database files
 
 /**
 *   @function initFeed()

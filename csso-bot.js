@@ -1,26 +1,22 @@
 // Import external modules
-var colors = require('colors');        // Color codes console output
-const fs = require("fs");              // To read the credentials file
+var colors    = require('colors');     // Color codes console output
+const fs      = require("fs");         // To read the credentials file
 const Discord = require("discord.js"); // The bot
 const client  = new Discord.Client();
 
 // Import internal modules
 const feed = require('./feedparser.js'); // For parsing RSS feeds
+const db   = require('./db.js');         // Database files
 
-// Database Files
-// const feeds = require("./db/feeds.json");
-const feeds = require("./db/feeds-dev.json");       // RSS Feeds for all shows
-const bot_commands = require("./db/commands.json"); // List of commands
-const user_roles = require("./db/roles.json")       // List of user roles and the commands they can use
+// Read bot credentials from a file and log in
+let credentials = JSON.parse(fs.readFileSync('./db/client_key.json',"utf8"));
+client.login(credentials.token);
 
 /**
 *   @function initBot
 *   Creates an instance of the Discord bot. Should only be called on app startup.
 */
 exports.initBot = () => {
-  // Read bot credentials from a file and log in
-  let credentials = JSON.parse(fs.readFileSync('./db/client_key.json',"utf8"));
-  client.login(credentials.token);
 
   console.log("Bot initializing.".yellow);
 
@@ -29,32 +25,36 @@ exports.initBot = () => {
   });
 
   client.on("message", (message) => {
-    if ( message.content.startsWith("!commands") ){
-      var command_list = "*Here is the list of commands this bot accepts:* \n\n";
-      for (var i = 0; i < commands.length; i++) {
-        command_list += "**"+commands[i].command+":** "+commands[i].description+"\n\n";
-      }
+    var role_id = "327868906964516864"; // Role ID of message sender
+
+    if ( message.content.startsWith("!commands") && db.hasPermission(role_id,"!commands")){
+      var command_list = db.getCommands(message)
       message.channel.send(command_list);
     }
-    if ( message.content.startsWith("!test") ) {
+    if ( message.content.startsWith("!test") && db.hasPermission(role_id,"!test")) {
       message.channel.send("Reply!");
     }
-    if ( message.content.startsWith("!rss") ) {
-      message.channel.send("What, me, RSS?");
-    }
-    if ( message.content.startsWith("!dyk") ) {
+    if ( message.content.startsWith("!dyk") && db.hasPermission(role_id,"!dyk")) {
       message.channel.send("<:dyk:324633372217573377>");
     }
-    if ( message.content.startsWith("!new") ) {
+    if ( message.content.startsWith("!new") && db.hasPermission(role_id,"!new")) {
+        // Get the channel id the request was sent from
         var channel_id  = message.channel.id;
         var feed_urls   = [];
-        // Look up the feed_url that correlates to this channel
-        for (var i = 0; i < feeds.length; i++) {
-          // Add the feed URL if it matches the channel ID, OR if the channel is "general"
-          if(feeds[i].channel_id == channel_id || channel_id == "324563443279724545" || channel_id == "325292818547605505"){
-            feed_urls.push(feeds[i].feed_url);
+        // Look through all feeds
+        for (var i = 0; i < db.table.feeds.length; i++) {
+          // In each feed, look for all channel ids
+          for (var j = 0; j < db.table.feeds[i].channel_ids.length; j++) {
+            // If the channel the reqest was sent from matches the id for this feed, add it!
+            if(channel_id == db.table.feeds[i].channel_ids[j]){
+              feed_urls.push(db.table.feeds[i].feed_url);
+            }
           }
         }
+        // Remove any duplicate feed entries so we don't parse the same feeds multiple times
+        feed_urls = feed_urls.filter(function(item, pos) {
+            return feed_urls.indexOf(item) == pos;
+        });
         // Send error if no feeds found, else get the newest item for each feed
         if(feed_urls.length == 0){
           message.channel.send("No feeds found for this channel."+ feed_urls);
@@ -84,6 +84,7 @@ exports.initBot = () => {
 *   @input feed_urls:array A list of feed URLs
 */
 function compareFeeds(feed_urls, callback){
+  console.log("Finding the newest episode within the following "+feed_urls.length+" feeds.");
   // Array of feed responses
   var feed_data   = [];
   // Get newest item from each feed found
@@ -106,15 +107,6 @@ function compareFeeds(feed_urls, callback){
       }
     });
   }
-}
-
-/**
-*   @function hasPermission()
-*
-*   Check if user role has permission to use a command
-*/
-function hasPermission(role, command){
-
 }
 
 /**
