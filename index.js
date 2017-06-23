@@ -1,25 +1,15 @@
-/*
-  index.js
-
-  Run this file to start the Discord bot and all dependencies.
-
+/**
+*  index.js
+*
+*  Run this file to start the Discord bot!
 */
-// Grab the modules we will be using
+
+// External modules
 var colors = require('colors');
-
-const feed = require('./feedparser.js');
-// const feeds = require("./feeds.json");
-const feeds = require("./feeds-dev.json");
-
+// Internal modules
 const bot  = require('./csso-bot.js');
-
-// Variables for ease of access
-const base_playlist_url = "https://www.youtube.com/feeds/videos.xml?playlist_id=";
-
-console.log("Starting CSSO bot.");
+const feed = require('./feedparser.js');
 
 // Initialize the Discord Bot
+console.log("Starting CSSO bot.");
 bot.initBot();
-
-// Test getNewest and console.log the output
-// feed.getNewest("https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW0rOb8Ahw4L3kGflHJ9IdqF", function(result){console.log(result)});
