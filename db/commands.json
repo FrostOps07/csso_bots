@@ -9,6 +9,10 @@
   },
   {
     "command":"!new",
-    "description":"Post a link to the newest episode available for whatever channel you are in! If you are in the #general channel, this will send back the newest episode available out all CSSO feeds."
+    "description":"Post a link to the newest episode available for whatever channel you are in! If you are in the #general channel, this will send back the newest episode out of all CSSO shows."
+  },
+  {
+    "command":"!dyk",
+    "description":"<:dyk:324633372217573377>???"
   }
 ]

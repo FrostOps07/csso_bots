@@ -25,56 +25,82 @@ exports.initBot = () => {
   });
 
   client.on("message", (message) => {
-    var role_id = "327868906964516864"; // Role ID of message sender
-
-    if ( message.content.startsWith("!commands") && db.hasPermission(role_id,"!commands")){
-      var command_list = db.getCommands(message)
-      message.channel.send(command_list);
-    }
-    if ( message.content.startsWith("!test") && db.hasPermission(role_id,"!test")) {
-      message.channel.send("Reply!");
-    }
-    if ( message.content.startsWith("!dyk") && db.hasPermission(role_id,"!dyk")) {
-      message.channel.send("<:dyk:324633372217573377>");
-    }
-    if ( message.content.startsWith("!new") && db.hasPermission(role_id,"!new")) {
-        // Get the channel id the request was sent from
-        var channel_id  = message.channel.id;
-        var feed_urls   = [];
-        // Look through all feeds
-        for (var i = 0; i < db.table.feeds.length; i++) {
-          // In each feed, look for all channel ids
-          for (var j = 0; j < db.table.feeds[i].channel_ids.length; j++) {
-            // If the channel the reqest was sent from matches the id for this feed, add it!
-            if(channel_id == db.table.feeds[i].channel_ids[j]){
-              feed_urls.push(db.table.feeds[i].feed_url);
-            }
-          }
-        }
-        // Remove any duplicate feed entries so we don't parse the same feeds multiple times
-        feed_urls = feed_urls.filter(function(item, pos) {
-            return feed_urls.indexOf(item) == pos;
-        });
-        // Send error if no feeds found, else get the newest item for each feed
-        if(feed_urls.length == 0){
-          message.channel.send("No feeds found for this channel."+ feed_urls);
-        }
-        // Don't bother comparing feeds if there's only one!
-        if(feed_urls.length == 1){
-          feed.getNewest(feed_urls[0], function(result){
-            var show_name    = result.meta.title;
-            var episode_link = result.item.link;
-            var data = "Here's the newest episode of "+show_name+"! \n"+episode_link;
-            message.channel.send(data);
-          });
-        }
-        // Otherwise, compare all the feeds!
-        else{
-          compareFeeds(feed_urls, function(data){
-            message.channel.send(data);
-          });
+    // Message is a command
+    if( message.content.startsWith("!")){
+      // Data we will need to reference
+      var msg_array  = message.content.split(" ");
+      var channel_id = message.channel.id;
+      var command    = msg_array[0];
+      var user_roles = [];
+      // Check for roles with access to this command
+      var roles_with_permission = db.rolesWithPermission(command);
+      var has_permission = false;
+      // Check if this user has a role with permission
+      for (var i = 0; i < roles_with_permission.length; i++) {
+        if(message.member.roles.has(roles_with_permission[i].id)){
+          has_permission = true;
+          user_roles.push(roles_with_permission[i].id);
         }
       }
+      // Client has permission! Do the thing they asked.
+      if(has_permission == true){
+        if ( command == "!commands"){
+          var command_list = db.getCommands(user_roles);
+          var command_list_message = "*Here are the commands you are able to use:* \n\n";
+          for (var i = 0; i < command_list.length; i++) {
+            command_list_message += "**"+command_list[i].command+":** "+command_list[i].description+"\n";
+          }
+          message.channel.send(command_list_message);
+        }
+        if ( command == "!test") {
+          message.channel.send("Reply!");
+        }
+        if ( command == "!dyk") {
+          message.channel.send("<:dyk:324633372217573377>");
+        }
+        if ( command == "!new") {
+          // Get the channel id the request was sent from
+          var feed_urls   = [];
+          // Look through all feeds
+          for (var i = 0; i < db.table.feeds.length; i++) {
+            // In each feed, look for all channel ids
+            for (var j = 0; j < db.table.feeds[i].channel_ids.length; j++) {
+              // If the channel the reqest was sent from matches the id for this feed, add it!
+              if(channel_id == db.table.feeds[i].channel_ids[j]){
+                feed_urls.push(db.table.feeds[i].feed_url);
+              }
+            }
+          }
+          // Remove any duplicate feed entries so we don't parse the same feeds multiple times
+          feed_urls = feed_urls.filter(function(item, pos) {
+            return feed_urls.indexOf(item) == pos;
+          });
+          // Send error if no feeds found, else get the newest item for each feed
+          if(feed_urls.length == 0){
+            message.channel.send("No feeds found for this channel."+ feed_urls);
+          }
+          // Don't bother comparing feeds if there's only one!
+          if(feed_urls.length == 1){
+            feed.getNewest(feed_urls[0], function(result){
+              var show_name    = result.meta.title;
+              var episode_link = result.item.link;
+              var data = "Here's the newest episode of "+show_name+"! \n"+episode_link;
+              message.channel.send(data);
+            });
+          }
+          // Otherwise, compare all the feeds!
+          else{
+            compareFeeds(feed_urls, function(data){
+              message.channel.send(data);
+            });
+          }
+        }
+      }
+      else{
+        message.channel.send("Hey you! You're not allowed to use `"+command+"`!");
+      }
+    }
+
   });
 };
 

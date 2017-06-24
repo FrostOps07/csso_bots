@@ -11,8 +11,8 @@
     "role":"Mod",
     "id":"324571281884315649",
     "commands":[
-      "!new",
-      "!commands"
+      "!commands",
+      "!new"
     ]
   },
   {
