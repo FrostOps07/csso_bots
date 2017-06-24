@@ -11,6 +11,18 @@ This guide assumes you already have Node JS installed on your machine and know h
 - Add your bot's credentials to  `client_key.json`.
 - Run `node index.js` in your console. If you see "I am ready!" in your console, you are good to go!
 
+# Updating the bot
+
+- SSH in to the server the bot is stored on
+- `cd csso-bot` to enter bot directory
+- `forever stopall` to end all background processes
+- `git pull` to grab updates
+- `forever start index.js` to start the bot again
+
+# Dev reference
+
+- Running from EC2: http://shiffman.net/a2z/bot-ec2/
+
 # To Do
 
 - Automatically post new episodes to their respective channel (and general) when they are uploaded.
