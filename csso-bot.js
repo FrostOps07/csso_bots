@@ -80,13 +80,17 @@ exports.initBot = () => {
             message.channel.send("No feeds found for this channel."+ feed_urls);
           }
           // Don't bother comparing feeds if there's only one!
-          if(feed_urls.length == 1){
+          else if(feed_urls.length == 1){
             feed.getNewest(feed_urls[0], function(result){
-              var show_name    = result.meta.title;
               var episode_link = result.item.link;
-              var data = "Here's the newest episode of "+show_name+"! \n"+episode_link;
+              var this_feed    = db.getFeedFromURL(feed_urls[0]);
+              var show_name    = this_feed.name;
+              var data = "Here's the newest episode of "+show_name+"! \n\n"+episode_link;
               message.channel.send(data);
             });
+          }
+          // Channel is spamhalla, send the newest one from each feed
+          else if(channel_id == "eventually, spamhalls"){//"324587903759941632"){
           }
           // Otherwise, compare all the feeds!
           else{
@@ -125,11 +129,20 @@ function compareFeeds(feed_urls, callback){
           b = new Date(b.item.pubdate);
           return a>b ? -1 : a<b ? 1 : 0;
         });
-        // Create message
-        var show_name    = feed_data[0].meta.title;
+        var this_feed    = db.getFeedFromURL(feed_data[0].feed_url);
         var episode_link = feed_data[0].item.link;
-        var data = "Here's the newest episode of "+show_name+"! \n"+episode_link;
-        callback(data);
+        var show_name    = this_feed.name;
+        // Feeds are the same show
+        if(db.compareFeeds(feed_urls) == true){
+          // Create message
+          var data = "Here's the latest episode of "+show_name+"! \n\n"+episode_link;
+          callback(data);
+        }
+        // Feeds are different shows, post CSSO text
+        else{
+          var data = "Here's the latest release from Chainsawsuit Originals!\n\n"+episode_link;
+          callback(data);
+        }
       }
     });
   }

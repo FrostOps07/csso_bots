@@ -49,7 +49,7 @@
     ]
   },
   {
-    "name":       "28 Plays Later Videos",
+    "name":       "28 Plays Later",
     "type":       "video",
     "feed_url":   "https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW1rBxwI5JdcstHXHrKKeNJP",
     "channel_ids": [
@@ -61,7 +61,7 @@
     ]
   },
   {
-    "name":       "ChainsawSuit Solves",
+    "name":       "Chainsawsuit Solves",
     "feed_url":   "https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW3myi_yJGE89H8wPV-jJYPK",
     "channel_ids": [
       "326731293242949635",
@@ -90,7 +90,7 @@
       "324563443279724545",
       "325292818547605505",
       "324930387166101504",
-      "324587903759941632" 
+      "324587903759941632"
     ]
   }
 ]

@@ -4,4 +4,4 @@
 /node_modules
 
 # sensitive data
-/client_key.json
+/db/client_key.json

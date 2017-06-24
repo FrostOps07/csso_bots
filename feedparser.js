@@ -107,7 +107,8 @@ exports.getNewest = (feed_address, callback) => {
         // Send first feed item back, and metadata for the feed
         callback({
           "meta":meta,
-          "item":item
+          "item":item,
+          "feed_url":feed_address
         });
         feed_items++;
       }

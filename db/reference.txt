@@ -27,6 +27,7 @@
 
 # Channels
 324930387166101504 # Mod Channel
+324587903759941632 # Spamhalla
 325292818547605505 # General (Dev)
 324564307486703618 # Movies with Mikey
 326893762049736704 # Movies with Mikey (Dev)

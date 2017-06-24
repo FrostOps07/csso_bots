@@ -120,3 +120,45 @@ exports.getCommands = (role_ids) => {
 
   return command_list;
 }
+
+/**
+*   @function getFeedFromURL()
+*   @input feed_url:string A feed URL
+*   @return feed_item:object
+*/
+exports.getFeedFromURL = (feed_url) => {
+  for (var i = 0; i < feeds.length; i++) {
+    if(feed_url == feeds[i].feed_url){
+      console.log(feeds[i].name);
+      return feeds[i];
+    }
+  }
+  return false;
+}
+
+/**
+*   @function compareFeeds()
+*   @input feed_urls:array
+*   Determines if multiple feeds are for the same show or not
+*   @return boolean
+*/
+exports.compareFeeds = (feed_urls) => {
+  var compared_feeds = [];
+  for (var i = 0; i < feed_urls.length; i++) {
+    var new_feed = exports.getFeedFromURL(feed_urls[i]);
+    if(new_feed != false){ // If it exists
+      compared_feeds.push();
+    }
+  }
+  return compared_feeds.allSameName = function() {
+      for(var i = 1; i < this.length; i++)
+      {
+          if(this.name[i] !== this.name[0]){
+            console.log("feeds have different names");
+            return false;
+          }
+      }
+      console.log("feeds have the same name", this.name[0])
+      return true;
+  }
+}
