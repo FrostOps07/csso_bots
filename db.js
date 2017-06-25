@@ -3,6 +3,7 @@ const _ = require("lodash");
 const commands = require("./db/commands.json");
 const feeds    = require("./db/feeds.json");
 const roles    = require("./db/roles.json");
+const dyk      = require("./db/dyk.json");
 
 const bot = require("./csso-bot.js");
 
@@ -161,4 +162,14 @@ exports.compareFeeds = (feed_urls) => {
       console.log("feeds have the same name", this.name[0])
       return true;
   }
+}
+
+/**
+*   @function getDYK()
+*   Returns a random "But Did You Know??" fact from Movies with Mikey.
+*   @return dyk_fact:object
+*/
+exports.getDYK = () => {
+  var randomDYK = _.sample(dyk);
+  return randomDYK;
 }

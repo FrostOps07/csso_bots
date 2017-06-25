@@ -56,7 +56,22 @@ exports.initBot = () => {
           message.channel.send("Reply!");
         }
         if ( command == "!dyk") {
-          message.channel.send("<:dyk:324633372217573377>");
+          // Grab a random DYK fact
+          var random_dyk    = db.getDYK();
+          var dyk_prefix    = "";
+          if(random_dyk.dyk_type != undefined){
+            dyk_prefix = random_dyk.dyk_type;
+          }
+          var dyk_content   = random_dyk.dyk;
+          var dyk_link      = random_dyk.videoLink;
+          var dyk_timestamp = random_dyk.timestamp;
+          var dyk_name      = random_dyk.title;
+          // Build the DYK message
+          if(random_dyk.source != "twitch"){
+            var dyk_message = "<:dyk:324633372217573377> " + dyk_prefix + " BUT DID YOU KNOW??? <:dyk:324633372217573377> " + dyk_content + "\n\n From **" + dyk_name + ":** <" + dyk_link + "&t="+dyk_timestamp + ">";
+          }
+          // Send that shit
+          message.channel.send(dyk_message);
         }
         if ( command == "!new") {
           // Get the channel id the request was sent from
