@@ -68,7 +68,7 @@ exports.initBot = () => {
           var dyk_name      = random_dyk.title;
           // Build the DYK message
           if(random_dyk.source != "twitch"){
-            var dyk_message = "<:dyk:324633372217573377> " + dyk_prefix + " BUT DID YOU KNOW??? <:dyk:324633372217573377> " + dyk_content + "\n\n From **" + dyk_name + ":** <" + dyk_link + "&t="+dyk_timestamp + ">";
+            var dyk_message = "<:dyk:324633372217573377> **" + dyk_prefix + " BUT DID YOU KNOW???** <:dyk:324633372217573377> \n\n" + dyk_content + "\n\n From **" + dyk_name + ":** <" + dyk_link + "&t="+dyk_timestamp + ">";
           }
           // Send that shit
           message.channel.send(dyk_message);
