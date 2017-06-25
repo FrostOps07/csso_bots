@@ -25,5 +25,5 @@ This guide assumes you already have Node JS installed on your machine and know h
 
 # To Do
 
-- Automatically post new episodes to their respective channel (and general) when they are uploaded and detected in their RSS feed.
-- Create table: `db/dyk.json`
+- Automatically post new episodes to their respective channel (and general/spamhalla/etc) when they are uploaded and detected in their RSS feed.
+- Create `/db/channels.json` to make the above to-do easier
