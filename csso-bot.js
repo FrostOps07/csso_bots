@@ -63,13 +63,10 @@ exports.initBot = () => {
             dyk_prefix = random_dyk.dyk_type;
           }
           var dyk_content   = random_dyk.dyk;
-          var dyk_link      = random_dyk.videoLink;
-          var dyk_timestamp = random_dyk.timestamp;
+          var dyk_link      = "<" + random_dyk.videoLink + "&t="+ random_dyk.timestamp + ">";
           var dyk_name      = random_dyk.title;
           // Build the DYK message
-          if(random_dyk.source != "twitch"){
-            var dyk_message = "<:dyk:324633372217573377> **" + dyk_prefix + " BUT DID YOU KNOW???** <:dyk:324633372217573377> \n\n" + dyk_content + "\n\n From **" + dyk_name + ":** <" + dyk_link + "&t="+dyk_timestamp + ">";
-          }
+          var dyk_message = "<:dyk:324633372217573377> **" + dyk_prefix + " BUT DID YOU KNOW???** <:dyk:324633372217573377> \n\n" + dyk_content + "\n\nFrom **" + dyk_name + ":** \n" + dyk_link;
           // Send that shit
           message.channel.send(dyk_message);
         }
