@@ -9,10 +9,10 @@
   },
   {
     "command":"!new",
-    "description":"Post a link to the newest episode available for whatever channel you are in! If you are in the #general channel, this will send back the newest episode out of all CSSO shows."
+    "description":"Post a link to the newest episode available for whatever channel you are in! If you are in `#general` or `#spamhalla` channel, this will send back the newest episode out of all CSSO shows."
   },
   {
     "command":"!dyk",
-    "description":"<:dyk:324633372217573377>???"
+    "description":"Displays a random <:dyk:324633372217573377> fact, with a timestamped link to the episode it occurred in. Additionally, `!dyk stats` will display a message containing fun statistics for <:dyk:324633372217573377>."
   }
 ]

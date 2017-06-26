@@ -48,7 +48,7 @@ exports.initBot = () => {
           var command_list = db.getCommands(user_roles);
           var command_list_message = "*Here are the commands you are able to use:* \n\n";
           for (var i = 0; i < command_list.length; i++) {
-            command_list_message += "**"+command_list[i].command+":** "+command_list[i].description+"\n";
+            command_list_message += "`"+command_list[i].command+"`: "+command_list[i].description+"\n\n";
           }
           message.channel.send(command_list_message);
         }
@@ -56,19 +56,33 @@ exports.initBot = () => {
           message.channel.send("Reply!");
         }
         if ( command == "!dyk") {
-          // Grab a random DYK fact
-          var random_dyk    = db.getDYK();
-          var dyk_prefix    = "";
-          if(random_dyk.dyk_type != undefined){
-            dyk_prefix = random_dyk.dyk_type;
+          // Send DYK statistics
+          if(msg_array[1] == "stats"){
+            var dyk_stats_message = "<:dyk:324633372217573377> **BUT DID YOU KNOW???** <:dyk:324633372217573377>\n\n";
+            var dyk_stats = db.getDykStats();
+
+            dyk_stats_message += "In this history of *Movies with Mikey*, we have learned **"+dyk_stats.total_facts+"** <:dyk:324633372217573377> facts. ";
+            dyk_stats_message += "<:dyk:324633372217573377> has been featured in **" + dyk_stats.episodes_with_facts + "** episodes so far, ";
+            dyk_stats_message += "and the episode with the most <:dyk:324633372217573377>'s is *" + dyk_stats.has_most_facts.title + "*, with **" + dyk_stats.has_most_facts.fact_count + " <:dyk:324633372217573377>'s**.";
+
+            message.channel.send(dyk_stats_message);
           }
-          var dyk_content   = random_dyk.dyk;
-          var dyk_link      = "<" + random_dyk.videoLink + "&t="+ random_dyk.timestamp + ">";
-          var dyk_name      = random_dyk.title;
-          // Build the DYK message
-          var dyk_message = "<:dyk:324633372217573377> **" + dyk_prefix + " BUT DID YOU KNOW???** <:dyk:324633372217573377> \n\n" + dyk_content + "\n\nFrom **" + dyk_name + ":** \n" + dyk_link;
-          // Send that shit
-          message.channel.send(dyk_message);
+          // Send a random DYK fact
+          else {
+            // Grab a random DYK fact
+            var random_dyk    = db.getDYK();
+            var dyk_prefix    = "";
+            if(random_dyk.dyk_type != undefined){
+              dyk_prefix = random_dyk.dyk_type;
+            }
+            var dyk_content   = random_dyk.dyk;
+            var dyk_link      = "<" + random_dyk.videoLink + "&t="+ random_dyk.timestamp + ">";
+            var dyk_name      = random_dyk.title;
+            // Build the DYK message
+            var dyk_message = "<:dyk:324633372217573377> **" + dyk_prefix + " BUT DID YOU KNOW???** <:dyk:324633372217573377> \n\n" + dyk_content + "\n\nFrom **" + dyk_name + ":** \n" + dyk_link;
+            // Send that shit
+            message.channel.send(dyk_message);
+          }
         }
         if ( command == "!new") {
           // Get the channel id the request was sent from

@@ -173,3 +173,34 @@ exports.getDYK = () => {
   var randomDYK = _.sample(dyk);
   return randomDYK;
 }
+
+/**
+*   @function getDykStats()
+*   Returns fun statistics about our DYK database.
+*   @return dyk_stats:object
+*/
+exports.getDykStats = () => {
+  // Sort dyk by episodes so we have a list of episodes with facts
+  var uniq_episodes = _.uniqBy(dyk, 'title');
+  // Get the fact count for each episode
+  for (var ep in uniq_episodes) {
+    var ep_title = uniq_episodes[ep].title;
+    for(dyk_fact in dyk){
+      // init fact count if it doesn't exist
+      if(!uniq_episodes[ep].fact_count) uniq_episodes[ep].fact_count = 0;
+      // increment fact count if there's a fact
+      if(ep_title == dyk[dyk_fact].title) uniq_episodes[ep].fact_count++;
+    }
+  }
+  // Get the episode with the highest DYK count
+  var most_facts = uniq_episodes.reduce(function(prev, current) {
+      return (prev.fact_count > current.fact_count) ? prev : current
+  });
+  // Build stats object
+  var dyk_stats = {
+    "total_facts": dyk.length,
+    "episodes_with_facts":uniq_episodes.length,
+    "has_most_facts":most_facts
+  }
+  return dyk_stats;
+}
