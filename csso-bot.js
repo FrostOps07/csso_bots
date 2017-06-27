@@ -63,8 +63,26 @@ exports.initBot = () => {
 
             dyk_stats_message += "In this history of *Movies with Mikey*, we have learned **"+dyk_stats.total_facts+"** <:dyk:324633372217573377> facts. ";
             dyk_stats_message += "<:dyk:324633372217573377> has been featured in **" + dyk_stats.episodes_with_facts + "** episodes so far, ";
-            dyk_stats_message += "and the episode with the most <:dyk:324633372217573377>'s is *" + dyk_stats.has_most_facts.title + "*, with **" + dyk_stats.has_most_facts.fact_count + " <:dyk:324633372217573377>'s**.";
 
+            if(dyk_stats.most_facts.length > 1){
+
+              dyk_stats_message += "and the episodes with the most <:dyk:324633372217573377>'s are ";
+
+              for (var i = 0; i < dyk_stats.most_facts.length; i++) {
+                if(i == (dyk_stats.most_facts.length - 1) ){ // if this is the last item
+                  dyk_stats_message += "and *"+dyk_stats.most_facts[i].title+"*";
+                } else if(dyk_stats.most_facts.length == 2){ // Don't include a comma if there are only two items
+                  dyk_stats_message += "*"+dyk_stats.most_facts[i].title+"* ";
+                }else{
+                  dyk_stats_message += "*"+dyk_stats.most_facts[i].title+"*, ";
+                }
+              }
+
+              dyk_stats_message += ", with **" + dyk_stats.most_facts[0].fact_count + " <:dyk:324633372217573377>'s** each.";
+
+            } else if(dyk_stats.most_facts.length == 1){
+              dyk_stats_message += "and the episode with the most <:dyk:324633372217573377>'s is *" + dyk_stats.most_facts[0].title + "*, with **" + dyk_stats.most_facts[0].fact_count + " <:dyk:324633372217573377>'s**.";
+            }
             message.channel.send(dyk_stats_message);
           }
           // Send a random DYK fact

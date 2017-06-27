@@ -181,26 +181,43 @@ exports.getDYK = () => {
 */
 exports.getDykStats = () => {
   // Sort dyk by episodes so we have a list of episodes with facts
-  var uniq_episodes = _.uniqBy(dyk, 'title');
+  var uniq_episodes = [];
+      uniq_episodes = _.uniqBy(dyk, 'title');
   // Get the fact count for each episode
-  for (var ep in uniq_episodes) {
-    var ep_title = uniq_episodes[ep].title;
-    for(dyk_fact in dyk){
-      // init fact count if it doesn't exist
-      if(!uniq_episodes[ep].fact_count) uniq_episodes[ep].fact_count = 0;
+  for (var i = 0; i < uniq_episodes.length; i++) {
+    var ep_title   = uniq_episodes[i].title;
+    var fact_count = 0;
+    for (var j = 0; j < dyk.length; j++) {
+      dyk[j]
+
       // increment fact count if there's a fact
-      if(ep_title == dyk[dyk_fact].title) uniq_episodes[ep].fact_count++;
+      if(ep_title == dyk[j].title){
+        fact_count++;
+      }
     }
+    // Remove unneeded fields from this query
+    delete uniq_episodes[i].dyk;
+    delete uniq_episodes[i].timestamp;
+    delete uniq_episodes[i].videoLink;
+
+    uniq_episodes[i].fact_count = fact_count;
   }
   // Get the episode with the highest DYK count
-  var most_facts = uniq_episodes.reduce(function(prev, current) {
-      return (prev.fact_count > current.fact_count) ? prev : current
-  });
+  var most_facts = [];
+      most_facts = _.maxBy(uniq_episodes, 'fact_count');
+
+  // Check if there are other episodes that tie for the same fact count
+  var most_facts_array = [];
+  for (var i = 0; i < uniq_episodes.length; i++) {
+    if(uniq_episodes[i].fact_count == most_facts.fact_count){
+      most_facts_array.push(uniq_episodes[i]);
+    }
+  }
   // Build stats object
   var dyk_stats = {
     "total_facts": dyk.length,
-    "episodes_with_facts":uniq_episodes.length,
-    "has_most_facts":most_facts
+    "episodes_with_facts": uniq_episodes.length,
+    "most_facts": most_facts_array
   }
   return dyk_stats;
 }
