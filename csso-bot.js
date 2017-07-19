@@ -52,10 +52,10 @@ exports.initBot = () => {
           }
           message.channel.send(command_list_message);
         }
-        if ( command == "!test") {
+        else if ( command == "!test") {
           message.channel.send("Reply!");
         }
-        if ( command == "!dyk") {
+        else if ( command == "!dyk") {
           // Send DYK statistics
           if(msg_array[1] == "stats"){
             var dyk_stats_message = "<:dyk:324633372217573377> **BUT DID YOU KNOW???** <:dyk:324633372217573377>\n\n";
@@ -102,7 +102,7 @@ exports.initBot = () => {
             message.channel.send(dyk_message);
           }
         }
-        if ( command == "!new") {
+        else if ( command == "!new") {
           // Get the channel id the request was sent from
           var feed_urls   = [];
           // Look through all feeds
@@ -143,9 +143,19 @@ exports.initBot = () => {
             });
           }
         }
+        else {
+          // Only a user with permission for "all" would see this
+          // message.channel.send("The command `" + command + "` does not exist.");
+        }
       }
-      else{
-        message.channel.send("Hey you! You're not allowed to use `"+command+"`!");
+      // Does not have permission and the command exists
+      else if(has_permission == false && db.getCommand(command) != false){
+        var error_msg  = "Hey you! You're not allowed to use `"+command+"`!\n\n";
+            error_msg += "Roles with permission:\n";
+        for(var i = 0; i < roles_with_permission.length; i++){
+          error_msg += "- "+roles_with_permission[i].role+"\n";
+        }
+        message.channel.send(error_msg);
       }
     }
 
