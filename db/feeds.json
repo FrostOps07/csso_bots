@@ -13,7 +13,7 @@
   },
   {
     "name":       "PortsCenter",
-    "feed_url":   "https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW2f3re8q6C7fUGjYFtQltyu",
+    "feed_url":   "https://www.youtube.com/feeds/videos.xml?playlist_id=PLkxfY_5basb4y-HD-eP6e8kUQZuBYURaU",
     "channel_ids": [
       "324564388981768192",
       "326893844664811520",
@@ -51,7 +51,7 @@
   {
     "name":       "28 Plays Later",
     "type":       "video",
-    "feed_url":   "https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW1rBxwI5JdcstHXHrKKeNJP",
+    "feed_url":   "https://www.youtube.com/feeds/videos.xml?playlist_id=PLkxfY_5basb4U-MK356W4-m-wHK3dgxCz",
     "channel_ids": [
       "324928495912484864",
       "324563443279724545",
@@ -62,7 +62,7 @@
   },
   {
     "name":       "Chainsawsuit Solves",
-    "feed_url":   "https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW3myi_yJGE89H8wPV-jJYPK",
+    "feed_url":   "https://www.youtube.com/feeds/videos.xml?playlist_id=PLkxfY_5basb6eW5HN4agWQi6WhR9b-Hfa",
     "channel_ids": [
       "326731293242949635",
       "324563443279724545",
@@ -87,6 +87,17 @@
     "feed_url":   "http://tvcrimes.net/feed/podcast/",
     "channel_ids": [
       "324564420619403275",
+      "324563443279724545",
+      "325292818547605505",
+      "324930387166101504",
+      "324587903759941632"
+    ]
+  },
+  {
+    "name": "Stage of Development",
+    "feed_url":"https://www.youtube.com/feeds/videos.xml?playlist_id=PLkxfY_5basb6Prot1qFAX4_SkH9PmMSQs",
+    "channel_ids":[
+      "339808445895147522",
       "324563443279724545",
       "325292818547605505",
       "324930387166101504",

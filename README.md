@@ -25,6 +25,7 @@ This guide assumes you already have Node JS installed on your machine and know h
 
 # To Do
 
+- Modify `!new` so that the user can search for the newest episode of any given feed reguardless of the channel they are in - ie `!new Movies With Mikey`.
 - Automatically post new episodes to their respective channel (and general/spamhalla/etc) when they are uploaded and detected in their RSS feed.
 - Create `/db/channels.json` to make the above to-do easier
 - For `!commands`, show a list of the roles that can access each command

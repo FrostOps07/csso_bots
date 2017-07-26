@@ -28,6 +28,7 @@
 # Channels
 324930387166101504 # Mod Channel
 324587903759941632 # Spamhalla
+324563443279724545 # General
 325292818547605505 # General (Dev)
 324564307486703618 # Movies with Mikey
 326893762049736704 # Movies with Mikey (Dev)
@@ -40,3 +41,12 @@
 326731293242949635 # ChainsawSuit Solves
 324564335416573964 # Cry Me a Riverdale
 324564420619403275 # TV Crimes
+339808445895147522 # Stage of Development
+
+# Adding new feeds
+# Add the channel for the show, as well as the following channel IDs:
+"show_id_here",
+"324563443279724545", // general
+"325292818547605505", // general dev
+"324930387166101504", // mod channel
+"324587903759941632"  // spamhalla
