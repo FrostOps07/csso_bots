@@ -42,6 +42,7 @@
 324564335416573964 # Cry Me a Riverdale
 324564420619403275 # TV Crimes
 339808445895147522 # Stage of Development
+339929943314137098 # Heirarch
 
 # Adding new feeds
 # Add the channel for the show, as well as the following channel IDs:
