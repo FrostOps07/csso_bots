@@ -114,5 +114,16 @@
       "324930387166101504",
       "324587903759941632"
     ]
+  },
+  {
+    "name": "Video Game Releases",
+    "feed_url":"https://www.youtube.com/feeds/videos.xml?playlist_id=PLkxfY_5basb7ytSQEDnS_8Eaqz-S9CrVl",
+    "channel_ids":[
+      "341721095042498561",
+      "324563443279724545",
+      "325292818547605505",
+      "324930387166101504",
+      "324587903759941632"
+    ]
   }
 ]

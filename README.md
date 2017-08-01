@@ -30,3 +30,7 @@ This guide assumes you already have Node JS installed on your machine and know h
 - Create `/db/channels.json` to make the above to-do easier
 - For `!commands`, show a list of the roles that can access each command
 - New command: `!random`, like `!new`, but, uh, random.
+
+# DYK?!?!?
+- Add DYK from MWM: Stranger Things
+- Add DYK from PortsCenter: SimCity

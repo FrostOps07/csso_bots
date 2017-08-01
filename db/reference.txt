@@ -43,6 +43,7 @@
 324564420619403275 # TV Crimes
 339808445895147522 # Stage of Development
 339929943314137098 # Heirarch
+341721095042498561 # VG Release List
 
 # Adding new feeds
 # Add the channel for the show, as well as the following channel IDs:
