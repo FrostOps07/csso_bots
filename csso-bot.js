@@ -134,7 +134,7 @@ exports.initBot = () => {
             });
           }
           // Channel is spamhalla, send the newest one from each feed
-          else if(channel_id == "eventually, spamhalls"){//"324587903759941632"){
+          else if(channel_id == "eventually, spamhalla"){//"324587903759941632"){
           }
           // Otherwise, compare all the feeds!
           else{

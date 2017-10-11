@@ -136,5 +136,16 @@
       "324930387166101504",
       "324587903759941632"
     ]
+  },
+  {
+    "name": "Review Candy",
+    "feed_url":"https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW3M5opidBlB4UfAZUAU0eiM",
+    "channel_ids":[
+      "367736041454567424",
+      "324563443279724545",
+      "325292818547605505",
+      "324930387166101504",
+      "324587903759941632"
+    ]
   }
 ]
