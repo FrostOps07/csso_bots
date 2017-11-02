@@ -11,5 +11,5 @@ const bot  = require('./csso-bot.js');
 const feed = require('./feedparser.js');
 
 // Initialize the Discord Bot
-console.log("Starting CSSO bot.");
+console.log("Starting FilmJoy bot.");
 bot.initBot();

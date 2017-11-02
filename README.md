@@ -1,6 +1,6 @@
-# ChainsawSuit Bot
+# FilmJoy Bot
 
-A bot in dev for the ChainsawSuit Original Discord server!
+A bot in dev for the FilmJoy Discord server!
 
 # Getting Started
 

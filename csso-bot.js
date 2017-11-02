@@ -194,7 +194,7 @@ function compareFeeds(feed_urls, callback){
         }
         // Feeds are different shows, post CSSO text
         else{
-          var data = "Here's the latest release from Chainsawsuit Originals!\n\n"+episode_link;
+          var data = "Here's the latest release from FilmJoy!\n\n"+episode_link;
           callback(data);
         }
       }
