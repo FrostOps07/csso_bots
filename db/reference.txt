@@ -45,6 +45,7 @@
 339929943314137098 # Heirarch
 341721095042498561 # VG Release List
 344899132269527040 # Paranormal Playthrough
+375440489463283724 # Deep Dive
 
 # Adding new feeds
 # Add the channel for the show, as well as the following channel IDs:

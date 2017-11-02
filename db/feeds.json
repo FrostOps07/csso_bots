@@ -147,5 +147,16 @@
       "324930387166101504",
       "324587903759941632"
     ]
+  },
+  {
+    "name": "Deep Dive",
+    "feed_url":"https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW3tUehrWM7BNdl4QTd5I26V",
+    "channel_ids":[
+      "375440489463283724",
+      "324563443279724545",
+      "325292818547605505",
+      "324930387166101504",
+      "324587903759941632"
+    ]
   }
 ]
