@@ -30,7 +30,7 @@ exports.initBot = () => {
       // Data we will need to reference
       var msg_array  = message.content.split(" ");
       var channel_id = message.channel.id;
-      var command    = msg_array[0];
+      var command    = msg_array[0].toLowerCase();
       var user_roles = [];
       // Check for roles with access to this command
       var roles_with_permission = db.rolesWithPermission(command);
