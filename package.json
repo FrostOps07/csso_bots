@@ -5,13 +5,15 @@
   "main": "index.js",
   "dependencies": {
     "colors": "^1.1.2",
+    "discord.js": "^11.4.2",
     "lodash": "^4.17.4",
     "node-feedparser": "^1.0.1",
+    "nodemon": "^1.18.7",
     "request": "^2.81.0"
   },
   "devDependencies": {},
   "scripts": {
-    "start":"node index.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
