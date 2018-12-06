@@ -24,56 +24,8 @@
     ]
   },
   {
-    "name":       "Local58",
-    "feed_url":   "https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW0rOb8Ahw4L3kGflHJ9IdqF",
-    "channel_ids": [
-      "324590903111057409",
-      "326893865565028352",
-      "324563443279724545",
-      "325292818547605505",
-      "324930387166101504",
-      "324587903759941632"
-    ]
-  },
-  {
-    "name":       "28 Plays Later",
-    "type":       "podcast",
-    "feed_url":   "http://28playslater.com/feed/podcast/",
-    "channel_ids": [
-      "324928495912484864",
-      "327598745174933504",
-      "324563443279724545",
-      "325292818547605505",
-      "324930387166101504",
-      "324587903759941632"
-    ]
-  },
-  {
-    "name":       "28 Plays Later",
-    "type":       "video",
-    "feed_url":   "https://www.youtube.com/feeds/videos.xml?playlist_id=PLkxfY_5basb4U-MK356W4-m-wHK3dgxCz",
-    "channel_ids": [
-      "324928495912484864",
-      "324563443279724545",
-      "325292818547605505",
-      "324930387166101504",
-      "324587903759941632"
-    ]
-  },
-  {
-    "name":       "Chainsawsuit Solves",
-    "feed_url":   "https://www.youtube.com/feeds/videos.xml?playlist_id=PLkxfY_5basb6eW5HN4agWQi6WhR9b-Hfa",
-    "channel_ids": [
-      "326731293242949635",
-      "324563443279724545",
-      "325292818547605505",
-      "324930387166101504",
-      "324587903759941632"
-    ]
-  },
-  {
     "name":       "Cry Me a Riverdale",
-    "feed_url":   "http://feeds.feedburner.com/CryMeARiverdale",
+    "feed_url":   "https://rss.simplecast.com/podcasts/6331/rss",
     "channel_ids": [
       "324564335416573964",
       "324563443279724545",
@@ -94,53 +46,9 @@
     ]
   },
   {
-    "name": "Stage of Development",
-    "feed_url":"https://www.youtube.com/feeds/videos.xml?playlist_id=PLkxfY_5basb6Prot1qFAX4_SkH9PmMSQs",
-    "channel_ids":[
-      "339808445895147522",
-      "324563443279724545",
-      "325292818547605505",
-      "324930387166101504",
-      "324587903759941632"
-    ]
-  },
-  {
-    "name": "Heirarch",
-    "feed_url":"https://www.youtube.com/feeds/videos.xml?playlist_id=PLkxfY_5basb71zAubI7FXDcM8x4eJYact",
-    "channel_ids":[
-      "339929943314137098",
-      "324563443279724545",
-      "325292818547605505",
-      "324930387166101504",
-      "324587903759941632"
-    ]
-  },
-  {
-    "name": "Video Game Releases",
-    "feed_url":"https://www.youtube.com/feeds/videos.xml?playlist_id=PLkxfY_5basb7ytSQEDnS_8Eaqz-S9CrVl",
-    "channel_ids":[
-      "341721095042498561",
-      "324563443279724545",
-      "325292818547605505",
-      "324930387166101504",
-      "324587903759941632"
-    ]
-  },
-  {
-    "name": "Paranormal Playthrough",
-    "feed_url":"https://www.youtube.com/feeds/videos.xml?playlist_id=PLkxfY_5basb6WhNQ2C1yjBQehSlrvT1o4",
-    "channel_ids":[
-      "344899132269527040",
-      "324563443279724545",
-      "325292818547605505",
-      "324930387166101504",
-      "324587903759941632"
-    ]
-  },
-  {
-    "name": "Review Candy",
-    "feed_url":"https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW3M5opidBlB4UfAZUAU0eiM",
-    "channel_ids":[
+    "name":        "Review Candy",
+    "feed_url":    "https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW3M5opidBlB4UfAZUAU0eiM",
+    "channel_ids": [
       "367736041454567424",
       "324563443279724545",
       "325292818547605505",
@@ -149,9 +57,9 @@
     ]
   },
   {
-    "name": "Deep Dive",
-    "feed_url":"https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW3tUehrWM7BNdl4QTd5I26V",
-    "channel_ids":[
+    "name":        "Deep Dive",
+    "feed_url":    "https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW3tUehrWM7BNdl4QTd5I26V",
+    "channel_ids": [
       "375440489463283724",
       "324563443279724545",
       "325292818547605505",
