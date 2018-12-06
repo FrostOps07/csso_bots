@@ -1,0 +1,27 @@
+{
+  "name": "filmjoy-bot",
+  "version": "1.0.0",
+  "description": "A bot for the Filmjoy Discord server.",
+  "main": "index.js",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "lodash": "^4.17.4",
+    "node-feedparser": "^1.0.1",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start":"node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrostOps07/CSSO_bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FrostOps07/CSSO_bot/issues"
+  },
+  "homepage": "https://github.com/FrostOps07/CSSO_bot#readme"
+}
