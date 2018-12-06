@@ -4,7 +4,7 @@ var FeedParser = require('feedparser'); // for parsing feeds
 var request    = require('request');    // for fetching feeds
 
 // Internal Modules
-const bot = require('./csso-bot.js'); // Discord Bot
+const bot = require('./bot.js'); // Discord Bot
 const db  = require('./db.js') // Database files
 
 /**
@@ -20,7 +20,7 @@ exports.initFeed = (feed_address, channel_id) => {
   var feedparser = new FeedParser();
 
   req.on('error', function (error) {
-    console.log("Feed Request Error.".red,error);
+    this.emit('error', new Error('Feed Request Error.'));
   });
 
   req.on('response', function (res) {
@@ -51,7 +51,6 @@ exports.initFeed = (feed_address, channel_id) => {
 
     while (item = stream.read()) {
       var message = "New episode of "+meta.title+" found! " + item.title;
-      // console.log(message);
       bot.sendMessage(message, channel_id); // Sends the found item to the appropriate discord channel
     }
   });

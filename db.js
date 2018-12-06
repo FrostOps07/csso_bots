@@ -5,7 +5,7 @@ const feeds    = require("./db/feeds.json");
 const roles    = require("./db/roles.json");
 const dyk      = require("./db/dyk.json");
 
-const bot = require("./csso-bot.js");
+const bot = require("./bot.js");
 
 exports.table = {
   "commands":commands,
