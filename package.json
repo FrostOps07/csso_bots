@@ -6,14 +6,16 @@
   "dependencies": {
     "colors": "^1.1.2",
     "discord.js": "^11.4.2",
-    "lodash": "^4.17.4",
+    "feedparser": "^2.2.9",
+    "lodash": "^4.17.11",
     "node-feedparser": "^1.0.1",
     "nodemon": "^1.18.7",
-    "request": "^2.81.0"
+    "request": "^2.88.0"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "NODE_ENV=production node index.js",
+    "dev": "set NODE_ENV=development&& nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
