@@ -97,7 +97,7 @@ exports.initBot = () => {
               }
 
               var dyk_content   = random_dyk.dyk;
-              var dyk_link      = `<${random_dyk.videoLink}&t=${random_dyk.timestamp}>`;
+              var dyk_link      = `<https://www.youtube.com/watch?v=${random_dyk.videoLink}&t=${random_dyk.timestamp}>`;
               var dyk_name      = random_dyk.title;
 
               // Build the DYK message
