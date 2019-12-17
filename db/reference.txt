@@ -25,27 +25,35 @@
 <@&324595777475313664> # King Pretzel
 <@&324595722114564097> # Fancy Taco
 
-# Channels
+# General Channels
 324930387166101504 # Mod Channel
-324587903759941632 # Spamhalla
 324563443279724545 # General
-325292818547605505 # General (Dev)
+656382830347288577 # Community Showcase
+375439886053802006 # Gaming Catawumpus
+656381681497931786 # Film and TV
+
+# Show Channels
 324564307486703618 # Movies with Mikey
-326893762049736704 # Movies with Mikey (Dev)
 324564388981768192 # PortsCenter
-326893844664811520 # PortsCenter (Dev)
-324590903111057409 # Local58
-326893865565028352 # Local58 (Dev)
-324928495912484864 # 28 Plays Later
-327598745174933504 # 28 Plays Later (Dev)
-326731293242949635 # ChainsawSuit Solves
 324564335416573964 # Cry Me a Riverdale
+375440489463283724 # Deep Dive
+
+# Dev Test Channels
+656609802352590908 # Movies With Mikey
+656609825697955860 # Portscenter
+656609872292478979 # Cry Me A Riverdale
+656609849580322856 # DEEP DIVE
+
+# Defunct Channels
+324587903759941632 # Spamhalla
+324928495912484864 # 28 Plays Later
+324590903111057409 # Local58
+326731293242949635 # ChainsawSuit Solves
 324564420619403275 # TV Crimes
 339808445895147522 # Stage of Development
 339929943314137098 # Heirarch
 341721095042498561 # VG Release List
 344899132269527040 # Paranormal Playthrough
-375440489463283724 # Deep Dive
 
 # Adding new feeds
 # Add the channel for the show, as well as the following channel IDs:

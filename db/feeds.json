@@ -3,68 +3,98 @@
     "name":       "Movies with Mikey",
     "feed_url":   "https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW2iK2sVp2ni_VDRKrmfF_-Z",
     "channel_ids": [
+      "# MWM",
       "324564307486703618",
-      "326893762049736704",
-      "324563443279724545",
-      "325292818547605505",
+
+      "# MWM Dev",
+      "656609802352590908",
+
+      "# general channels",
+      "350332449068154881",
       "324930387166101504",
-      "324587903759941632"
+      "324563443279724545",
+      "656382830347288577",
+      "375439886053802006",
+      "656381681497931786"
     ]
   },
+
+  {
+    "name": "You Should See It",
+    "feed_url": "https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW1kziZEG8x_L-5QBDZmLRPX",
+    "channel_ids": [
+      "# MWM",
+      "324564307486703618",
+      
+      "# MWM Dev",
+      "656609802352590908",
+
+      "350332449068154881",
+      "324930387166101504",
+      "324563443279724545",
+      "656382830347288577",
+      "375439886053802006",
+      "656381681497931786" 
+    ]
+  },
+
   {
     "name":       "PortsCenter",
     "feed_url":   "https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW2f3re8q6C7fUGjYFtQltyu",
     "channel_ids": [
+      "# PORTSCENTER PROD",
       "324564388981768192",
-      "326893844664811520",
-      "324563443279724545",
-      "325292818547605505",
+
+      "# PORTSCENTER DEV",
+      "656609825697955860",
+
+      "# general channels",
+      "350332449068154881",
       "324930387166101504",
-      "324587903759941632"
+      "324563443279724545",
+      "656382830347288577",
+      "375439886053802006",
+      "656381681497931786" 
     ]
   },
+
   {
     "name":       "Cry Me a Riverdale",
     "feed_url":   "https://rss.simplecast.com/podcasts/6331/rss",
     "channel_ids": [
+      "# CRY ME A RIVER(DALE)",
       "324564335416573964",
-      "324563443279724545",
-      "325292818547605505",
+
+      "# DEVER(DALE)",
+      "656609872292478979",
+
+      "# general channels",
       "324930387166101504",
-      "324587903759941632"
+      "324563443279724545",
+      "350332449068154881",
+      "656382830347288577",
+      "375439886053802006",
+      "656381681497931786" 
     ]
   },
-  {
-    "name":       "TV Crimes",
-    "feed_url":   "http://tvcrimes.net/feed/podcast/",
-    "channel_ids": [
-      "324564420619403275",
-      "324563443279724545",
-      "325292818547605505",
-      "324930387166101504",
-      "324587903759941632"
-    ]
-  },
-  {
-    "name":        "Review Candy",
-    "feed_url":    "https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW3M5opidBlB4UfAZUAU0eiM",
-    "channel_ids": [
-      "367736041454567424",
-      "324563443279724545",
-      "325292818547605505",
-      "324930387166101504",
-      "324587903759941632"
-    ]
-  },
+
   {
     "name":        "Deep Dive",
     "feed_url":    "https://www.youtube.com/feeds/videos.xml?playlist_id=PLdGl5mi0XeW3tUehrWM7BNdl4QTd5I26V",
     "channel_ids": [
+      "# DEEP DIVE",
       "375440489463283724",
-      "324563443279724545",
-      "325292818547605505",
+
+      "# DEEP DIVE DEV",
+      "656609849580322856",
+
+      "# general channels",
       "324930387166101504",
-      "324587903759941632"
+      "350332449068154881",
+      "324563443279724545",
+      "656382830347288577",
+      "375439886053802006",
+      "656381681497931786" 
     ]
   }
 ]

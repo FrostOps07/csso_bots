@@ -31,24 +31,25 @@ exports.initBot = () => {
       var user_roles = [];
 
       // Check for roles with access to this command
-      var roles_with_permission = db.rolesWithPermission(command);
-      var has_permission = false;
-      if(environment == 'development') has_permission = true;
+      // var roles_with_permission = db.rolesWithPermission(command);
+      // var has_permission = false;
+      // if(environment == 'development') has_permission = true;
       
       // Check if this user has a role with permission
-      for (var i = 0; i < roles_with_permission.length; i++) {
-        if(message.member.roles.has(roles_with_permission[i].id)){
-          has_permission = true;
-          user_roles.push(roles_with_permission[i].id);
-        }
-      }
+      // for (var i = 0; i < roles_with_permission.length; i++) {
+      //   if(message.member.roles.has(roles_with_permission[i].id)){
+      //     has_permission = true;
+      //     user_roles.push(roles_with_permission[i].id);
+      //   }
+      // }
 
       // Client has permission! Do the thing they asked.
-      if(has_permission == true){
+      // if(has_permission == true){
+        
         switch (command) {
           case "!commands":
             let command_list         = db.getCommands(user_roles);
-            let command_list_message = "*Here are the commands you are able to use:* \n\n";
+            let command_list_message = "*Here are all the commands I know!* \n\n";
             for (let c of command_list) {
               command_list_message += `\`${c.command}\`: ${c.description}\n\n`;
             }
@@ -59,7 +60,8 @@ exports.initBot = () => {
             break;
           case "!dyk":
             // Send DYK statistics
-            if(msg_array[1] == "stats"){ // !dyk stats
+            // !dyk stats
+            if(msg_array[1] == "stats"){ 
               var dyk_stats_message = "<:dyk:324633372217573377> **BUT DID YOU KNOW???** <:dyk:324633372217573377>\n\n";
               var dyk_stats         = db.getDykStats();
 
@@ -83,8 +85,17 @@ exports.initBot = () => {
               else if(dyk_stats.most_facts.length == 1){
                 dyk_stats_message += `and the episode with the most <:dyk:324633372217573377>'s is *${dyk_stats.most_facts[0].title}*, with  **${dyk_stats.most_facts[0].fact_count} <:dyk:324633372217573377>'s**.`;
               }
+
               message.channel.send(dyk_stats_message);
             }
+            // !dyk help
+            else if(msg_array[1] == "help"){
+              var dyk_help_message = "<:dyk:324633372217573377> **BUT DID YOU KNOW???** <:dyk:324633372217573377>\n\n";
+              dyk_help_message += `The <:dyk:324633372217573377> facts this bot knows have been transcribed with the help of users in this Discord community! If you'd like to help, this Google Sheet tracks the facts we haven't added to the bot yet! \n\n`;
+              dyk_help_message += `https://docs.google.com/spreadsheets/d/1Sw79F4Acs98Fi6yOypJvg9xdT4Ez7FiL-_PE_fP-A-8/edit?usp=sharing`;
+
+              message.channel.send(dyk_help_message);
+            } 
             // Send a random DYK fact
             else {
               // Grab a random DYK fact
@@ -109,7 +120,8 @@ exports.initBot = () => {
             break;
           case "!new":
             // Get the channel id the request was sent from
-            var feed_urls   = [];
+            var feed_urls = [];
+
             // Look through all feeds
             for (var i = 0; i < db.table.feeds.length; i++) {
               // In each feed, look for all channel ids
@@ -120,14 +132,17 @@ exports.initBot = () => {
                 }
               }
             }
+
             // Remove any duplicate feed entries so we don't parse the same feeds multiple times
             feed_urls = feed_urls.filter(function(item, pos) {
               return feed_urls.indexOf(item) == pos;
             });
+
             // Send error if no feeds found, else get the newest item for each feed
             if(feed_urls.length == 0){
               message.channel.send("No feeds found for this channel."+ feed_urls);
             }
+
             // Don't bother comparing feeds if there's only one!
             else if(feed_urls.length == 1){
               feed.getNewest(feed_urls[0], function(result){
@@ -138,27 +153,26 @@ exports.initBot = () => {
                 message.channel.send(data);
               });
             }
-            // Channel is spamhalla, send the newest one from each feed
-            else if(channel_id == "eventually, spamhalla"){//"324587903759941632"){
-            }
+
             // Otherwise, compare all the feeds!
             else{
               compareFeeds(feed_urls, (data) => {
                 message.channel.send(data);
               });
             }
+            
             break;
         }
-      }
-      // Does not have permission and the command exists
-      else if(has_permission == false && db.getCommand(command) != false){
-        var error_msg  = "Hey you! You're not allowed to use `"+command+"`!\n\n";
-            error_msg += "Roles with permission:\n";
-        for(let r of roles_with_permission){
-          error_msg += `- ${r.role}\n`;
-        }
-        message.channel.send(error_msg);
-      }
+      // }
+      // // Does not have permission and the command exists
+      // else if(has_permission == false && db.getCommand(command) != false){
+      //   var error_msg  = "Hey you! You're not allowed to use `"+command+"`!\n\n";
+      //       error_msg += "Roles with permission:\n";
+      //   for(let r of roles_with_permission){
+      //     error_msg += `- ${r.role}\n`;
+      //   }
+      //   message.channel.send(error_msg);
+      // }
     }
   });
 };

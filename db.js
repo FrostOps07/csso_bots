@@ -81,40 +81,10 @@ exports.getCommand = (command_name) => {
 
 /**
 *   @function getCommands()
-*   @input    role_ids:array An array of role IDs
 *   @return   command_list:array An array command objects
 */
-exports.getCommands = (role_ids) => {
-  var these_roles = [];
-  // Get all roles requested
-  for (let r of role_ids) {
-    these_roles.push(exports.getRole(r));
-  }
-  var command_list = [];
-  // Get all commands these roles have
-  these_roles.forEach(function(this_role){
-    if(this_role != false && this_role.commands.length > 0){
-      for (var i = 0; i < this_role.commands.length; i++) {
-        if(exports.hasPermission(this_role.id, this_role.commands[i])){
-          // Just add all commands
-          if(this_role.commands[i] == "all"){
-            command_list = commands;
-          }
-          // Add just the ones they have permission for
-          else{
-            var new_command = exports.getCommand(this_role.commands[i]);
-            if(new_command != false && new_command.command != undefined){ // If it exists
-              command_list.push(new_command);
-            }
-          }
-        }
-      }
-    }
-  });
-  // Remove any duplicate commands
-  command_list = _.uniqBy(command_list, "command");
-
-  return command_list;
+exports.getCommands = () => {
+  return commands;
 }
 
 /**

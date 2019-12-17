@@ -1,7 +1,7 @@
 [
   {
     "command":"!commands",
-    "description":"The command you're probably using to read this list, silly."
+    "description":"Shows all the bot commands!"
   },
   {
     "command":"!test",
@@ -9,10 +9,18 @@
   },
   {
     "command":"!new",
-    "description":"Post a link to the newest episode available for whatever channel you are in! If you are in `#general` or `#spamhalla` channel, this will send back the newest episode out of all FilmJoy shows."
+    "description":"Post a link to the newest episode available for whatever channel you are in. If you are in `#general`, this will send back the newest episode out of all FilmJoy shows."
   },
   {
     "command":"!dyk",
-    "description":"Displays a random <:dyk:324633372217573377> fact, with a timestamped link to the episode it occurred in. Additionally, `!dyk stats` will display a message containing fun statistics for <:dyk:324633372217573377>."
+    "description":"Displays a random <:dyk:324633372217573377> fact, with a timestamped link to the episode it occurred in."
+  },
+  {
+    "command": "!dyk stats",
+    "description": "Displays a message containing fun statistics for all the <:dyk:324633372217573377> facts the bot knows."
+  },
+  {
+    "command": "!dyk help",
+    "description": "Displays a link to the shared Google Sheet that tracks <:dyk:324633372217573377>'s that haven't been added to the bot yet."
   }
 ]
